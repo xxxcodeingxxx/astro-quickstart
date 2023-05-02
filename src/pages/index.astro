@@ -1,93 +1,96 @@
 ---
+import BgSvg from '../components/BgSvg.astro'
 import Layout from '../components/Layout.astro'
 ---
 
 <Layout title="Simple Tic Tac Toe Game">
     <main>
-        <svg
-            id="background"
-            width="1728"
-            height="1235"
-            viewBox="0 0 1728 1235"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            ><g opacity="0.75" filter="url(#filter0_f_39_143)"
-                ><circle cy="1000" r="264" fill="url(#paint0_linear_39_143)"
-                ></circle></g
-            ><g opacity="0.65" filter="url(#filter1_f_39_143)"
-                ><circle
-                    cx="1720"
-                    cy="264"
-                    r="379"
-                    fill="url(#paint1_linear_39_143)"></circle></g
-            ><defs
-                ><filter
-                    id="filter0_f_39_143"
-                    x="-485"
-                    y="515"
-                    width="970"
-                    height="970"
-                    filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
-                    ><feFlood flood-opacity="0" result="BackgroundImageFix"
-                    ></feFlood><feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"></feBlend><feGaussianBlur
-                        stdDeviation="110.5"
-                        result="effect1_foregroundBlur_39_143"
-                    ></feGaussianBlur></filter
-                ><filter
-                    id="filter1_f_39_143"
-                    x="1120"
-                    y="-336"
-                    width="1200"
-                    height="1200"
-                    filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
-                    ><feFlood flood-opacity="0" result="BackgroundImageFix"
-                    ></feFlood><feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"></feBlend><feGaussianBlur
-                        stdDeviation="110.5"
-                        result="effect1_foregroundBlur_39_143"
-                    ></feGaussianBlur></filter
-                ><linearGradient
-                    id="paint0_linear_39_143"
-                    x1="196.5"
-                    y1="902"
-                    x2="-2.55853e-05"
-                    y2="1264"
-                    gradientUnits="userSpaceOnUse"
-                    ><stop stop-color="var(--bttm-left-blur-1)"></stop><stop
-                        offset="1"
-                        stop-color="var(--bttm-left-blur-2)"
-                    ></stop></linearGradient
-                ><linearGradient
-                    id="paint1_linear_39_143"
-                    x1="1720"
-                    y1="-115"
-                    x2="1720"
-                    y2="643"
-                    gradientUnits="userSpaceOnUse"
-                    ><stop stop-color="var(--top-right-blur-1)"></stop><stop
-                        offset="1"
-                        stop-color="var(--top-right-blur-2)"
-                    ></stop></linearGradient
-                ></defs
-            ></svg
-        >
+        <BgSvg />
         <div id="content">
-            <div class="header">
+            <div class="header py-4">
                 <h1 class="text-myColor text-7xl">
-                    <span class="text-blue-500">Tic</span>
-                    <span class="text-red-500">Tac</span>
-                    <span class="text-green-400">Toe</span>
+                    <span class="text-basePurp">Tic</span>
+                    <span class="text-lightCol">Tac</span>
+                    <span class="text-basePurp">Toe</span>
                 </h1>
+                <p class="text-xl text-lightCol my-4">
+                    This is a very simple but elegant game of Tic Tac Toe.<br />
+                    The first player to move will be 'X'
+                </p>
+            </div>
+            <div class="text-2xl text-white">
+                <span class="scoreboard mr-12"
+                    >X- <span class="scoreboard_X"></span></span
+                >
+                <span class="scoreboard ml-12"
+                    >O- <span class="scoreboard_O"></span></span
+                >
+            </div>
+            <div class="winnerMsg mt-4 mb-2 text-white text-3xl"></div>
+            <div class="game">
+                <div class="board border-basePurp">
+                    <div class="row">
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="0"
+                        >
+                        </div>
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="1"
+                        >
+                        </div>
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="2"
+                        >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="3"
+                        >
+                        </div>
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="4"
+                        >
+                        </div>
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="5"
+                        >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="6"
+                        >
+                        </div>
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="7"
+                        >
+                        </div>
+                        <div
+                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                            id="8"
+                        >
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="restart bg-lightCol text-white rounded hover:bg-white hover:text-lightCol"
+                    id="restart">Restart</button
+                >
             </div>
         </div>
     </main>
 </Layout>
+<style>
+    .cell:active {
+        background-color: #fff !important;
+    }
+</style>
