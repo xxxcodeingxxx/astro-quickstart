@@ -1,5 +1,7 @@
 [![Netlify + Astro](https://user-images.githubusercontent.com/43764894/223559085-8ff69d2f-4247-427f-a3a6-d2036b00082a.png)](https://ntl.fyi/3LZGn73)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d142d908-99eb-471a-9b6d-5c25a792f53d/deploy-status)](https://app.netlify.com/sites/dpmtictactoe/deploys)
+
 # Very Simple Yet Elegant Tic Toe Game
 
 This is a very simple yet elegant tic tac toe game built using Netlify + Astro + Tailwind
