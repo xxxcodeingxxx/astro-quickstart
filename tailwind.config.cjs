@@ -10,6 +10,7 @@ module.exports = {
                 basePurp: '#5C14E0',
                 lightCol: '#6115ED',
                 darker: '#5112C7',
+                lightest: '#d5bfff',
             },
         },
     },

@@ -13,84 +13,139 @@ import Layout from '../components/Layout.astro'
                     <span class="text-lightCol">Tac</span>
                     <span class="text-basePurp">Toe</span>
                 </h1>
-                <p class="text-xl text-lightCol my-4">
-                    This is a very simple but elegant game of Tic Tac Toe.<br />
-                    The first player to move will be 'X'
+                <div class="my-4">
+                    <button
+                        id="hide"
+                        class="py-2 px-4 rounded bg-darkPurp duration-700 ease-in-out hover:bg-lightest hover:text-darkPurp text-center text-lightest"
+                    >
+                        Hide
+                    </button>
+                </div>
+                <p
+                    id="directions"
+                    class="text-xl text-lightest text-center px-6 md:px-48 lg:px-60 my-4"
+                >
+                    This is a very simple but elegant game of Tic Tac Toe. The
+                    first player to move will be 'X' and the second player will
+                    be 'O'. Use the restart button to clear the board, first
+                    player to reach 10 points is the 'Grand Winner'!
                 </p>
-            </div>
-            <div class="text-2xl text-white">
-                <span class="scoreboard mr-12"
-                    >X- <span class="scoreboard_X"></span></span
-                >
-                <span class="scoreboard ml-12"
-                    >O- <span class="scoreboard_O"></span></span
-                >
-            </div>
-            <div class="winnerMsg mt-4 mb-2 text-white text-3xl"></div>
-            <div class="game">
-                <div class="board border-basePurp">
-                    <div class="row">
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="0"
-                        >
+                <div class="text-3xl text-white">
+                    <span class="scoreboard mr-12"
+                        >X- <span class="scoreboard_X"></span></span
+                    >
+                    <span class="scoreboard ml-12"
+                        >O- <span class="scoreboard_O"></span></span
+                    >
+                </div>
+                <div class="winnerMsg mt-4 mb-2 text-white text-3xl"></div>
+                <div class="grandWin_audio"></div>
+                <div class="my-4 text-white mx-auto text-center text-3xl">
+                    <span class="w-12 hearts hidden inline-block h-auto">
+                        <img
+                            src="/Images/Gifs/heartbeat2.gif"
+                            alt="Heartbeating"
+                        />
+                    </span>
+                    <span class="grandWin blink"></span>
+                    <span class="w-12 hearts hidden inline-block h-auto">
+                        <img
+                            src="/Images/Gifs/heartbeat2.gif"
+                            alt="Heartbeating"
+                        />
+                    </span>
+                </div>
+                <div class="game">
+                    <div class="board border-basePurp">
+                        <div class="row">
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="0"
+                            >
+                            </div>
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="1"
+                            >
+                            </div>
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="2"
+                            >
+                            </div>
                         </div>
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="1"
-                        >
+                        <div class="row">
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="3"
+                            >
+                            </div>
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="4"
+                            >
+                            </div>
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="5"
+                            >
+                            </div>
                         </div>
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="2"
-                        >
+                        <div class="row">
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="6"
+                            >
+                            </div>
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="7"
+                            >
+                            </div>
+                            <div
+                                class="cell border-basePurp text-basePurp hover:bg-lightCol"
+                                id="8"
+                            >
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="3"
+                    <div class="my-4">
+                        <button
+                            class="inline mr-2 restart bg-lightCol text-white rounded hover:bg-white hover:text-lightCol"
+                            id="restart">Restart</button
                         >
-                        </div>
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="4"
-                        >
-                        </div>
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="5"
-                        >
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="6"
-                        >
-                        </div>
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="7"
-                        >
-                        </div>
-                        <div
-                            class="cell border-basePurp text-basePurp hover:bg-lightCol"
-                            id="8"
-                        >
-                        </div>
                     </div>
                 </div>
-                <button
-                    class="restart bg-lightCol text-white rounded hover:bg-white hover:text-lightCol"
-                    id="restart">Restart</button
-                >
             </div>
         </div>
     </main>
+    <style>
+        .cell:active {
+            background-color: #fff !important;
+        }
+        .blink {
+            animation: blink-animation 1s steps(5, start) infinite;
+            -webkit-animation: blink-animation 1s steps(5, start) infinite;
+        }
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        .no-select {
+            -webkit-touch-callout: none !important; /* iOS Safari */
+            -webkit-user-select: none !important; /* Safari, Chrome, Opera, Samsung */
+            -khtml-user-select: none !important; /* Konqueror HTML */
+            -moz-user-select: none !important; /* Firefox */
+            -ms-user-select: none !important; /* Edge, IE */
+            user-select: none !important; /* Modern browsers */
+            pointer-events: none;
+        }
+    </style>
 </Layout>
-<style>
-    .cell:active {
-        background-color: #fff !important;
-    }
-</style>
