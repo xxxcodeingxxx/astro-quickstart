@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-DMQSI53G">
+    <head>
+        <title>A Simple Elegant Tic Tac Toe Game</title>
+
+        <link rel="canonical" href="https://dpmtictactoe.netlify.app/" />
+
+        <meta
+            name="description"
+            content="Simple but elegantly designed game of tic tac toe. Built with modern HTML, CSS, and Javascript."
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <meta property="og:title" content="Elegant Tic Tac Toe Game" />
+        <meta property="og:type" content="Game" />
+        <meta property="og:image" content="/Images/ticTactoe.png" />
+        <meta property="og:url" content="http://localhost:3000/" />
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+        <title>Simple Tic Tac Toe Game</title>
+        <link rel="stylesheet" href="/_astro/index.57e7747f.css" />
+        <script type="module">
+            console.log('We are connected MuthaFookrs!!')
+            let c = 'X',
+                o = ['', '', '', '', '', '', '', '', '']
+            const r = document.querySelectorAll('.cell'),
+                u = document.querySelector('#restart'),
+                m = document.querySelector('.winnerMsg'),
+                h = document.querySelector('.grandWin'),
+                d = document.querySelector('.grandWin_audio'),
+                L = '<audio autoplay src="/Audio/rocket_sound.mp3"></audio>',
+                w = '<audio autoplay src="/Audio/game_fail.mp3"></audio>',
+                s = document.querySelectorAll('.hearts')
+            document.querySelector('.board')
+            const y = document.getElementById('directions'),
+                a = document.getElementById('hide')
+            let g = 0,
+                f = 0
+            a.addEventListener('click', () => {
+                y.classList != 'hidden' &&
+                    (y.classList.toggle('hidden'),
+                    a.textContent === 'Show'
+                        ? (a.textContent = 'Hide')
+                        : (a.textContent = 'Show'))
+            })
+            function M(e) {
+                o[e] === '' &&
+                    ((o[e] = c),
+                    (r[e].innerText = c),
+                    (c = c === 'X' ? 'O' : 'X'))
+            }
+            function S() {
+                const e = [
+                    [0, 1, 2],
+                    [3, 4, 5],
+                    [6, 7, 8],
+                    [0, 3, 6],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [0, 4, 8],
+                    [2, 4, 6],
+                ]
+                for (let n = 0; n < e.length; n++) {
+                    const [i, l, t] = e[n]
+                    if (o[i] && o[i] === o[l] && o[i] === o[t]) return o[i]
+                }
+                return o.includes('') ? null : 'tie'
+            }
+            function q() {
+                for (let e = 0; e < r.length; e++)
+                    r[e].addEventListener('click', () => {
+                        r[e].classList.add('bg-white'), M(e)
+                        const n = S(),
+                            i = `🎉 Player ${n} wins! 🎉`,
+                            l = ` Player ${n} Is Grand Winner! `
+                        if (n) {
+                            for (let t = 0; t < r.length; t++)
+                                r[t].classList.add('no-select')
+                            m.innerHTML = i
+                        }
+                        if (
+                            n === 'X' &&
+                            ((g += 1),
+                            (document.querySelector(
+                                '.scoreboard_X'
+                            ).textContent = g),
+                            g === 10)
+                        ) {
+                            ;(h.textContent = l), (d.innerHTML = L)
+                            for (let t = 0; t < s.length; t++)
+                                s[t].classList.remove('hidden')
+                            u.addEventListener('click', () => {
+                                document.location.reload()
+                            })
+                        }
+                        if (
+                            n === 'O' &&
+                            ((f += 1),
+                            (document.querySelector(
+                                '.scoreboard_O'
+                            ).textContent = f),
+                            f === 10)
+                        ) {
+                            ;(h.textContent = l), (d.innerHTML = L)
+                            for (let t = 0; t < s.length; t++)
+                                s[t].classList.remove('hidden')
+                            u.addEventListener('click', () => {
+                                document.location.reload()
+                            })
+                        }
+                        n === 'tie' &&
+                            ((d.innerHTML = w),
+                            (m.innerHTML = '😾 Cats Game! Draw! 😾'))
+                    })
+                u.addEventListener('click', () => {
+                    ;(c = 'X'), (o = ['', '', '', '', '', '', '', '', ''])
+                    for (let e = 0; e < r.length; e++)
+                        (r[e].innerText = ''),
+                            r[e].classList.remove('bg-white', 'no-select')
+                    ;(m.innerHTML = ''), (d.innerHTML = '')
+                })
+            }
+            q()
+        </script>
+    </head>
+    <body class="astro-DMQSI53G">
+        <main class="astro-J7PV25F6">
+            <svg
+                id="background"
+                width="1728"
+                height="1235"
+                viewBox="0 0 1728 1235"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g opacity="0.75" filter="url(#filter0_f_39_143)">
+                    <circle
+                        cy="1000"
+                        r="264"
+                        fill="url(#paint0_linear_39_143)"
+                    ></circle>
+                </g>
+                <g opacity="0.65" filter="url(#filter1_f_39_143)">
+                    <circle
+                        cx="1720"
+                        cy="264"
+                        r="379"
+                        fill="url(#paint1_linear_39_143)"
+                    ></circle>
+                </g>
+                <defs>
+                    <filter
+                        id="filter0_f_39_143"
+                        x="-485"
+                        y="515"
+                        width="970"
+                        height="970"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                    >
+                        <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                        ></feFlood>
+                        <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="BackgroundImageFix"
+                            result="shape"
+                        ></feBlend>
+                        <feGaussianBlur
+                            stdDeviation="110.5"
+                            result="effect1_foregroundBlur_39_143"
+                        ></feGaussianBlur>
+                    </filter>
+                    <filter
+                        id="filter1_f_39_143"
+                        x="1120"
+                        y="-336"
+                        width="1200"
+                        height="1200"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                    >
+                        <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                        ></feFlood>
+                        <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="BackgroundImageFix"
+                            result="shape"
+                        ></feBlend>
+                        <feGaussianBlur
+                            stdDeviation="110.5"
+                            result="effect1_foregroundBlur_39_143"
+                        ></feGaussianBlur>
+                    </filter>
+                    <linearGradient
+                        id="paint0_linear_39_143"
+                        x1="196.5"
+                        y1="902"
+                        x2="-2.55853e-05"
+                        y2="1264"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="var(--bttm-left-blur-1)"></stop>
+                        <stop
+                            offset="1"
+                            stop-color="var(--bttm-left-blur-2)"
+                        ></stop>
+                    </linearGradient>
+                    <linearGradient
+                        id="paint1_linear_39_143"
+                        x1="1720"
+                        y1="-115"
+                        x2="1720"
+                        y2="643"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="var(--top-right-blur-1)"></stop>
+                        <stop
+                            offset="1"
+                            stop-color="var(--top-right-blur-2)"
+                        ></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div id="content" class="astro-J7PV25F6">
+                <div class="header py-4 astro-J7PV25F6">
+                    <div
+                        class="w-[80%] md:w-[40%] h-auto mx-auto astro-J7PV25F6"
+                    >
+                        <img
+                            src="/Images/ticTactoe.png"
+                            alt="Tic Tac Toe"
+                            class="astro-J7PV25F6"
+                        />
+                    </div>
+
+                    <h1 class="text-myColor hidden text-7xl astro-J7PV25F6">
+                        <span class="text-basePurp astro-J7PV25F6">Tic</span>
+                        <span class="text-lightCol astro-J7PV25F6">Tac</span>
+                        <span class="text-basePurp astro-J7PV25F6">Toe</span>
+                    </h1>
+                    <div class="my-4 astro-J7PV25F6">
+                        <button
+                            id="hide"
+                            class="py-2 px-4 rounded bg-darkPurp duration-700 ease-in-out hover:bg-lightest hover:text-darkPurp text-center text-lightest astro-J7PV25F6"
+                        >
+                            Hide
+                        </button>
+                    </div>
+                    <p
+                        id="directions"
+                        class="text-xl text-lightest text-center px-6 md:px-48 lg:px-60 my-4 astro-J7PV25F6"
+                    >
+                        This is a very simple but elegant game of Tic Tac Toe.
+                        The first player to move will be 'X' and the second
+                        player will be 'O'. Use the restart button to clear the
+                        board, first player to reach 10 points is the 'Grand
+                        Winner'!
+                    </p>
+                    <div class="text-3xl text-white astro-J7PV25F6">
+                        <span class="scoreboard mr-12 astro-J7PV25F6"
+                            >X- <span class="scoreboard_X astro-J7PV25F6"></span
+                        ></span>
+                        <span class="scoreboard ml-12 astro-J7PV25F6"
+                            >O- <span class="scoreboard_O astro-J7PV25F6"></span
+                        ></span>
+                    </div>
+                    <div
+                        class="winnerMsg mt-4 mb-2 text-white text-3xl astro-J7PV25F6"
+                    ></div>
+                    <div class="grandWin_audio astro-J7PV25F6"></div>
+                    <div
+                        class="my-4 text-white mx-auto text-center text-3xl astro-J7PV25F6"
+                    >
+                        <span
+                            class="w-12 hearts hidden inline-block h-auto astro-J7PV25F6"
+                        >
+                            <img
+                                src="/Images/Gifs/heartbeat2.gif"
+                                alt="Heartbeating"
+                                class="astro-J7PV25F6"
+                            />
+                        </span>
+                        <span class="grandWin blink astro-J7PV25F6"></span>
+                        <span
+                            class="w-12 hearts hidden inline-block h-auto astro-J7PV25F6"
+                        >
+                            <img
+                                src="/Images/Gifs/heartbeat2.gif"
+                                alt="Heartbeating"
+                                class="astro-J7PV25F6"
+                            />
+                        </span>
+                    </div>
+                    <div class="game astro-J7PV25F6">
+                        <div class="board border-basePurp astro-J7PV25F6">
+                            <div class="row astro-J7PV25F6">
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="0"
+                                ></div>
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="1"
+                                ></div>
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="2"
+                                ></div>
+                            </div>
+                            <div class="row astro-J7PV25F6">
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="3"
+                                ></div>
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="4"
+                                ></div>
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="5"
+                                ></div>
+                            </div>
+                            <div class="row astro-J7PV25F6">
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="6"
+                                ></div>
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="7"
+                                ></div>
+                                <div
+                                    class="cell border-basePurp text-basePurp hover:bg-lightCol astro-J7PV25F6"
+                                    id="8"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="my-4 astro-J7PV25F6">
+                            <button
+                                class="inline mr-2 restart bg-lightCol text-white rounded hover:bg-white hover:text-lightCol astro-J7PV25F6"
+                                id="restart"
+                            >
+                                Restart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="w-100vw text-lightest py-12 h-auto mt-48">
+            <div class="text-center">
+                <a
+                    class="mx-2 duration-700 ease-in-out hover:text-lightest/50"
+                    target="_blank"
+                    href="https://github.com/xxxcodeingxxx"
+                    >Github</a
+                >
+                <a
+                    class="mx-2 duration-700 ease-in-out hover:text-lightest/50"
+                    target="_blank"
+                    href="https://www.facebook.com/john.downs.5872/"
+                    >Facebook</a
+                >
+                <a
+                    class="mx-2 duration-700 ease-in-out hover:text-lightest/50"
+                    target="_blank"
+                    href="https://www.instagram.com/hank_the_tank_dawg/"
+                    >Instagram</a
+                >
+            </div>
+            <div class="text-center">
+                &copy; 2023 Elegant Tic Tac Toe. All Rights Reserved
+            </div>
+        </footer>
+    </body>
+</html>
